@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User; // Import User model
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -24,6 +25,8 @@ class ReservationFactory extends Factory
             'number_of_guests' => $this->faker->numberBetween(1, 10),
             'special_request' => $this->faker->sentence,
             'status' => $this->faker->randomElement(['pending', 'confirmed', 'canceled']),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
