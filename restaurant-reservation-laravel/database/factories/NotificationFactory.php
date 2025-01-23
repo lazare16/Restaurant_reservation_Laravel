@@ -17,7 +17,9 @@ class NotificationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => User::factory(), // Create a user
+            'message' => $this->faker->sentence,
+            'is_read' => $this->faker->boolean,
         ];
     }
 }
