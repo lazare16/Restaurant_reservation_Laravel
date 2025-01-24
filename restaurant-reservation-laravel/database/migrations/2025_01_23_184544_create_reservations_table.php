@@ -20,8 +20,8 @@ return new class extends Migration
             $table->date('reservation_date');
             $table->time('reservation_time');
             $table->integer('number_of_guests');
-            $table->text('special_request')->nullable();
-            $table->enum('status', ['pending', 'confirmed', 'canceled'])->default('pending');
+            $table->string('special_request')->nullable();
+            $table->enum('status', ['pending', 'confirmed', 'canceled']);
             $table->timestamps();
         });
     }

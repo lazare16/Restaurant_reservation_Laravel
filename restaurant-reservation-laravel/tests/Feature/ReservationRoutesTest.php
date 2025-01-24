@@ -15,10 +15,12 @@ class ReservationRoutesTest extends TestCase
     public function it_can_list_reservations()
     {
         $user = User::factory()->create();
+        $this->actingAs($user, 'sanctum'); // Authenticate the user
+    
         Reservation::factory()->count(5)->create(['user_id' => $user->id]);
-
+    
         $response = $this->get('/api/reservations');
-
+    
         $response->assertStatus(200);
         $response->assertJsonCount(5); // Check if 5 reservations are returned
     }
@@ -27,19 +29,20 @@ class ReservationRoutesTest extends TestCase
     public function it_can_create_a_reservation()
     {
         $user = User::factory()->create();
+    $this->actingAs($user, 'sanctum'); // Authenticate the user
 
-        $data = [
-            'user_id' => $user->id,
-            'table_number' => 5,
-            'reservation_date' => '2025-01-25',
-            'reservation_time' => '18:00:00',
-            'number_of_guests' => 4,
-            'status' => 'pending',
-        ];
+    $data = [
+        'user_id' => $user->id,
+        'table_number' => 5,
+        'reservation_date' => '2025-01-25',
+        'reservation_time' => '18:00:00',
+        'number_of_guests' => 4,
+        'status' => 'pending',
+    ];
 
-        $response = $this->post('/api/reservations', $data);
+    $response = $this->post('/api/reservations', $data);
 
-        $response->assertStatus(201);
-        $this->assertDatabaseHas('reservations', $data); // Check if data exists in the DB
+    $response->assertStatus(201);
+    $this->assertDatabaseHas('reservations', $data); // Check if data exists in the DB
     }
 }
