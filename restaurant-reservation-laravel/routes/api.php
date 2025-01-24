@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('menus', MenuController::class);
     Route::resource('reservations', ReservationController::class); // Add this line
 });
+
+// Notifications API
+Route::put('notifications/{notification}', [NotificationController::class, 'markAsRead']);

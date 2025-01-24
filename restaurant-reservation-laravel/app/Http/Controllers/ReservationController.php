@@ -67,4 +67,16 @@ class ReservationController extends Controller
         $reservation->delete();
         return response()->json(null, 204);
     }
+
+    public function create()
+    {
+      $users = User::all(); // Pass users to the form
+      return view('reservations.form', compact('users'));
+    }
+
+    public function edit(Reservation $reservation)
+{
+    $users = User::all();
+    return view('reservations.form', compact('reservation', 'users'));
+}
 }

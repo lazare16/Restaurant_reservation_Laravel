@@ -45,4 +45,10 @@ class NotificationController extends Controller
         $notification->delete();
         return response()->json(null, 204);
     }
+
+    public function markAsRead(Notification $notification)
+{
+    $notification->update(['is_read' => true]);
+    return redirect()->route('notifications.index')->with('success', 'Notification marked as read.');
+}
 }

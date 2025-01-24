@@ -50,4 +50,14 @@ class MenuController extends Controller
         $menu->delete();
         return response()->json(null, 204);
     }
+
+    public function create()
+{
+    return view('menus.form');
+}
+
+public function edit(Menu $menu)
+{
+    return view('menus.form', compact('menu'));
+}
 }
