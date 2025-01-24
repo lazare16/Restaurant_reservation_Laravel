@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">Login</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('auth.login') }}">
                         @csrf
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
