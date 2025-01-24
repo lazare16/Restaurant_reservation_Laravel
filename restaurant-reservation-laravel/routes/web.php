@@ -31,3 +31,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('menus', MenuController::class);
     Route::resource('users', UserController::class);
 });
+
+
+// Authentication routes
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
