@@ -20,6 +20,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('users.index') }}">Users</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('auth.login') }}">Login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('auth.register') }}">Register</a>
+                    </li>
+
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('reservations.index') }}">Reservations</a>
                     </li>
